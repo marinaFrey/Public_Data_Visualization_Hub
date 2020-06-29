@@ -1,0 +1,22 @@
+.toolbar-icon {
+  padding: 0 14px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.logo {
+  height: inherit;
+  padding: 10px;
+}
+
+mat-toolbar {
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35) !important;
+}
+
+.title {
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+}
