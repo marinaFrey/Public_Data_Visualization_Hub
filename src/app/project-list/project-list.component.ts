@@ -11,10 +11,25 @@ import { Observable } from 'rxjs';
 export class ProjectListComponent implements OnInit {
 
   projects$: Observable<Project[]>;
+  selectedTag = '';
   constructor(private projectsService: ProjectsService) { }
 
   ngOnInit(): void {
-    this.projects$ = this.projectsService.getProjects();
+    this.getProjects();
+  }
+
+  getProjects() {
+    this.projects$ = this.projectsService.getProjects(this.selectedTag);
+  }
+
+  getListOfTags(projects: Project[]) {
+    return this.projectsService.createListOfTags(projects);
+  }
+
+  onTagSelected(tag: string) {
+    console.log(tag);
+    this.selectedTag = tag;
+    this.getProjects();
   }
 
 }

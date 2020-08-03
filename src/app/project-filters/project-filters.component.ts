@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from '../projects.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-project-filters',
@@ -8,22 +7,21 @@ import { ProjectsService } from '../projects.service';
 })
 export class ProjectFiltersComponent implements OnInit {
 
-  tags: string[];
-  constructor(private projectsService: ProjectsService) { }
+  @Input() tags: string[];
+  @Output() selectedTag = new EventEmitter<string>();
+  constructor() { }
 
   ngOnInit(): void {
-    this.tags = this.projectsService.createListOfTags();
   }
 
   showAll()
   {
-
+    this.selectedTag.emit('');
   }
 
   filterByTag(tag: string)
   {
-    const projectsFiltered = this.projectsService.filterProjectsByTag(tag);
-    console.log(projectsFiltered);
+    this.selectedTag.emit(tag);
   }
 
 }

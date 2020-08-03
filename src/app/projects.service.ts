@@ -9,20 +9,23 @@ import { PROJECTS } from './projectData';
 })
 export class ProjectsService {
 
-  private projects: Project[];
-  private projectsSubject = new Subject();
   constructor() { }
 
-  getProjects(): Observable<Project[]>
+  getProjects(selectedTag: string): Observable<Project[]>
   {
-    this.projects = PROJECTS;
-    const projects$ = of(PROJECTS);
+    let projects$;
+    if (selectedTag === '') {
+      projects$ = of(PROJECTS);
+    }
+    else {
+      projects$ = of(this.filterProjectsByTag(PROJECTS, selectedTag));
+    }
     return projects$;
   }
 
   getProject(id: number): Observable<Project>
   {
-    const projectObs$ = this.getProjects().pipe(switchMap(projects => this.getProjectById(projects, id)));
+    const projectObs$ = this.getProjects('').pipe(switchMap(projects => this.getProjectById(projects, id)));
     return projectObs$;
   }
 
@@ -40,10 +43,10 @@ export class ProjectsService {
     return of(projectSelected);
   }
 
-  createListOfTags(): Array<string>
+  createListOfTags(projects: Project[]): Array<string>
   {
     const list = [];
-    this.projects.forEach(project => {
+    projects.forEach(project => {
       project.tags.forEach( tag => {
         if (!list.includes(tag))
         {
@@ -54,10 +57,10 @@ export class ProjectsService {
     return list;
   }
 
-  filterProjectsByTag(tag: string): Array<Project[]>
+  filterProjectsByTag(projects: Project[], tag: string): Array<Project[]>
   {
     const list = [];
-    this.projects.forEach(project =>
+    projects.forEach(project =>
     {
       if (project.tags.includes(tag))
       {
