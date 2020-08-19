@@ -30,5 +30,34 @@
         sagittis, in rutrum est tempus. Cras non orci ac odio vehicula molestie id a odio. Aliquam eu mauris tincidunt,
         hendrerit libero id, scelerisque neque.
     </p>
+    <h2> Membros </h2>
+    <div *ngIf="members$ | async as listsOfMembersByCategory; else loading">
 
+        
+            <div *ngFor="let membersList of listsOfMembersByCategory" layout>
+                <p *ngIf="membersList.label == 'undefined'"> Other </p>
+                <p *ngIf="membersList.label != 'undefined'">{{membersList.label}}</p>
+                <div >
+                    <app-member-item *ngFor="let member of membersList.members" [member]="member"></app-member-item>
+                </div>
+            </div>
+        
+    
+    </div>
+    <!--
+    <div *ngIf="members$ | async as listsOfMembersByCategory; else loading">
+        <mat-grid-list [cols]="listsOfMembersByCategory.length" rowHeight="500px">
+            <mat-grid-tile *ngFor="let membersList of listsOfMembersByCategory">
+                <mat-grid-tile-header>{{membersList.label}}</mat-grid-tile-header>
+                <div *ngFor="let member of membersList.members" >
+                    <app-member-item [member]="member"></app-member-item>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+    </div>-->
 </div>
+
+<ng-template #loading>
+    <div>Loading ...</div>
+</ng-template>

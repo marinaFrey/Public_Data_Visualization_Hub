@@ -20,6 +20,7 @@ import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectFiltersComponent } from './project-filters/project-filters.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { MemberItemComponent } from './member-item/member-item.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AboutComponent } from './about/about.component';
     ProjectListComponent,
     ProjectFiltersComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    MemberItemComponent
   ],
   imports: [
     BrowserModule,

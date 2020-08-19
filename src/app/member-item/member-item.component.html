@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-content>
+        <img mat-card-image *ngIf="member.photo" mat-card-image src="assets/photos/members/{{member.photo}}"
+            alt="Photo of the student">
+        <mat-card-header>
+            <mat-card-title>{{member.name}}</mat-card-title>
+            <mat-card-subtitle *ngIf="member.studentType">{{member.studentType}}</mat-card-subtitle>
+            <!--<mat-card-actions>
+                <a *ngIf="member.url" mat-button color="primary" href="{{member.url}}" target="_blank">Website</a>
+            </mat-card-actions>-->
+        </mat-card-header>
+        
+    </mat-card-content>
+
+
+    <!--
+    <mat-card-content>
+        <p>{{project.description}}</p>
+        <mat-chip-list>
+            <mat-chip *ngFor="let tag of project.tags">{{tag}}</mat-chip>
+        </mat-chip-list>
+    </mat-card-content>
+    <mat-card-actions>
+        <button [routerLink]="['/project-details/', project.id]" mat-button>Mais Informações</button>
+        <a mat-button color="primary" href="{{project.url}}" target="_blank">Link da Aplicação</a>
+    </mat-card-actions>-->
+</mat-card>
