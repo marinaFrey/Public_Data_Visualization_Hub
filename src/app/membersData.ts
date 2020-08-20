@@ -5,6 +5,8 @@ export const MEMBERS: Member[] =
         {
             name: "Carla Freitas",
             studentType: "Professor",
+            url: "http://fortesrey.net/inf/cv",
+            projects: [1, 2],
             alreadyGraduated: false
         }, 
         {
