@@ -13,10 +13,27 @@ export const MEMBERS: Member[] =
             name: "Luciana Nedel",
             studentType: "Professor",
             alreadyGraduated: false
+        }, 
+        {
+            name: "Um Nome Muito Comprido Problematico",
+            studentType: "Professor",
+            alreadyGraduated: false
+        },
+        {
+            name: "Um Nome Muito Comprido Problematico",
+            studentType: "Ph.D",
+            advisor: "Carla Freitas",
+            alreadyGraduated: false
         },
         {
             name: "Gustavo Feller",
             studentType: "Ph.D",
+            advisor: "Carla Freitas",
+            alreadyGraduated: false
+        },
+        {
+            name: "Um Nome Muito Comprido Problematico",
+            studentType: "M.Sc.",
             advisor: "Carla Freitas",
             alreadyGraduated: false
         },
@@ -35,12 +52,19 @@ export const MEMBERS: Member[] =
             alreadyGraduated: false
         },
         {
+            name: "Um Nome Muito Comprido Problematico",
+            studentType: "Undergraduate",
+            advisor: "Carla Freitas",
+            alreadyGraduated: false
+        },
+        {
             name: "Marina Fortes Rey",
             studentType: "Undergraduate",
             alreadyGraduated: false
         },
         {
             name: "Marina Fortes Rey",
+            studentType: "Former Member",
             alreadyGraduated: true
         }
     ];

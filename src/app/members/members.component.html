@@ -1,0 +1,26 @@
+<div fxLayout="column"  >
+    <h1>Members</h1>
+    <div *ngIf="members$ | async as listsOfMembersByCategory; else loading" fxFlex="1 1 auto" fxLayout="row wrap"  fxLayoutAlign="center start" fxLayoutGap="10px">
+        <div *ngFor="let membersList of listsOfMembersByCategory" fxLayout="column"  >
+            <h2 *ngIf="membersList.label == 'undefined'"> Other </h2>
+            <h2 *ngIf="membersList.label != 'undefined'">{{membersList.label}}</h2>
+            <div>
+                <app-member-item *ngFor="let member of membersList.members" [member]="member"></app-member-item>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #loading>
+    <div>Loading ...</div>
+</ng-template>
+<!--<div *ngIf="members$ | async as listsOfMembersByCategory; else loading">
+        <div *ngFor="let membersList of listsOfMembersByCategory" layout>
+            <p *ngIf="membersList.label == 'undefined'"> Other </p>
+            <p *ngIf="membersList.label != 'undefined'">{{membersList.label}}</p>
+            <div>
+                <app-member-item *ngFor="let member of membersList.members" [member]="member"></app-member-item>
+            </div>
+        </div>
+    </div>-->

@@ -4,6 +4,8 @@ import { switchMap } from 'rxjs/operators';
 import { Project, Member } from './project';
 import { PROJECTS } from './projectData';
 import { MEMBERS } from './membersData';
+import { PUBLICATIONS } from './publicationsData';
+import { Publication } from './publication';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,6 @@ export class ProjectsService {
 
   getMembers(): Observable<Member[]>
   {
-    
     return of(MEMBERS);
   }
 
@@ -40,6 +41,11 @@ export class ProjectsService {
       list.push({label: key, members: associativeArray[key]});
     }
     return list;
+  }
+
+  getPublications(): Observable<Publication[]>
+  {
+    return of(PUBLICATIONS);
   }
 
   getProjects(selectedTag: string): Observable<Project[]>

@@ -21,6 +21,10 @@ import { ProjectFiltersComponent } from './project-filters/project-filters.compo
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { MemberItemComponent } from './member-item/member-item.component';
+import { MembersComponent } from './members/members.component';
+import { PublicationsComponent } from './publications/publications.component';
+import { PublicationItemComponent } from './publication-item/publication-item.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { MemberItemComponent } from './member-item/member-item.component';
     ProjectFiltersComponent,
     HomeComponent,
     AboutComponent,
-    MemberItemComponent
+    MemberItemComponent,
+    MembersComponent,
+    PublicationsComponent,
+    PublicationItemComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

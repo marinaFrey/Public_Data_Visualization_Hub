@@ -1,0 +1,12 @@
+<div fxLayout="column">
+    <h1>Publications</h1>
+    <div *ngIf="publications$ | async as publications; else loading" fxFlex="1 1 auto" fxLayout="column wrap"
+        fxLayoutAlign="center start" fxLayoutGap="10px">
+        <app-publication-item *ngFor="let publication of publications" [publication]="publication"></app-publication-item>
+    </div>
+</div>
+
+
+<ng-template #loading>
+    <div>Loading ...</div>
+</ng-template>
