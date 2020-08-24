@@ -80,7 +80,7 @@ export class ProjectsService {
     return of(projectSelected);
   }
 
-  createListOfTags(projects: Project[]): Array<string>
+  createListOfTags(projects): Array<string>
   {
     const list = [];
     projects.forEach(project => {

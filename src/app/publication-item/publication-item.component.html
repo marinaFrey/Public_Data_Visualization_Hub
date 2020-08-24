@@ -1,6 +1,6 @@
 <div class="flex-container" fxLayout="row wrap" fxLayout.xs="column wrap" fxFlex="100">
     <div class="flex-container" fxLayout="row wrap" fxLayout.xs="column wrap" fxFlex="30">
-        <div *ngIf="publication.videoUrl">
+        <div *ngIf="publication.videoUrl" class="video">
             <iframe [src]="publication.videoUrl | safe" frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
@@ -23,9 +23,12 @@
                 <a mat-button class="link-button" color="primary" href="{{publication.paperUrl}}"
                     target="_blank">Paper</a>
             </h1>
-            <a><b>authors: </b>{{publication.authors}}</a> <br>
-            <h2>Abstract</h2>
-            <p>{{publication.abstract}}</p>
+            <div *ngIf="publication.award" class="award">
+                <mat-icon>stars</mat-icon><span class="award-text">{{publication.award}}</span>
+            </div>
+            <a><b>{{publication.venue}}</b></a> <br>
+            <a><b>Authors: </b>{{publication.authors}}</a> <br>
+            <p><b>Abstract: </b>{{publication.abstract}}</p>
 
             <mat-chip-list>
                 <mat-chip *ngFor="let tag of publication.tags">{{tag}}</mat-chip>

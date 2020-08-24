@@ -5,7 +5,8 @@ export class Publication
     authors: string;
     abstract: string;
     tags: string[];
-    paperUrl: string;
+    paper?: string;
+    paperUrl?: string;
     award?: string;
     image?: string;
     imageUrl?: string;

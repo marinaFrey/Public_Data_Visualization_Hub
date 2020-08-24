@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class PublicationsComponent implements OnInit {
 
+  selectedTag: string;
   publications$: Observable<Publication[]>;
   constructor(private projectsService: ProjectsService) { }
 
@@ -22,5 +23,18 @@ export class PublicationsComponent implements OnInit {
   {
     this.publications$ = this.projectsService.getPublications();
   }
+
+  getListOfTags(publications: Publication[])
+  {
+    return this.projectsService.createListOfTags(publications);
+  }
+
+  onTagSelected(tag: string)
+  {
+    this.selectedTag = tag;
+    this.getPublications();
+  }
+
+
 
 }
