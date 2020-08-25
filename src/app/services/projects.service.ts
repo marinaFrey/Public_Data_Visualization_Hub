@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject, Observer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { Project, Member } from './project';
-import { PROJECTS } from './projectData';
-import { MEMBERS } from './membersData';
-import { PUBLICATIONS } from './publicationsData';
-import { Publication } from './publication';
+import { Project, Member } from '../project';
+import { PROJECTS } from '../projectData';
+import { MEMBERS } from '../membersData';
+import { PUBLICATIONS } from '../publicationsData';
+import { Publication } from '../publication';
 
 @Injectable({
   providedIn: 'root'
@@ -13,40 +13,6 @@ import { Publication } from './publication';
 export class ProjectsService {
 
   constructor() { }
-
-  getMembers(): Observable<Member[]>
-  {
-    return of(MEMBERS);
-  }
-
-  getMembersByCategory(category: string): Observable<any>
-  {
-    return of(this.listMembersByCategory(MEMBERS, category));
-  }
-
-  listMembersByCategory(members: Member[], category: string)
-  {
-    let associativeArray = [];
-    for(let i = 0; i < members.length; i++)
-    {
-      if (!associativeArray[members[i][category]])
-      {
-        associativeArray[members[i][category]] = [];
-      }
-      associativeArray[members[i][category]].push(members[i]);
-    }
-    let list = [];
-    for (let key in associativeArray)
-    {
-      list.push({label: key, members: associativeArray[key]});
-    }
-    return list;
-  }
-
-  getPublications(): Observable<Publication[]>
-  {
-    return of(PUBLICATIONS);
-  }
 
   getProjects(selectedTag: string): Observable<Project[]>
   {
@@ -94,7 +60,7 @@ export class ProjectsService {
     return list;
   }
 
-  filterProjectsByTag(projects: Project[], tag: string): Array<Project[]>
+  filterProjectsByTag(projects, tag: string)
   {
     const list = [];
     projects.forEach(project =>

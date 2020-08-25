@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Member } from '../project';
 import { Observable } from 'rxjs';
-import { ProjectsService } from '../projects.service';
+import { MembersService } from '../services/members.service';
 
 @Component({
   selector: 'app-members',
@@ -11,7 +11,7 @@ import { ProjectsService } from '../projects.service';
 export class MembersComponent implements OnInit {
 
   members$: Observable<Member[]>;
-  constructor(private projectsService: ProjectsService) { }
+  constructor(private membersService: MembersService) { }
 
   ngOnInit(): void
   {
@@ -20,6 +20,6 @@ export class MembersComponent implements OnInit {
 
   getMembers()
   {
-    this.members$ = this.projectsService.getMembersByCategory('studentType');
+    this.members$ = this.membersService.getMembersByCategory('studentType');
   }
 }

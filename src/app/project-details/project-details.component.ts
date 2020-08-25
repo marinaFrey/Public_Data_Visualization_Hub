@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../project';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ProjectsService } from '../projects.service';
+import { ProjectsService } from '../services/projects.service';
 import { Observable } from 'rxjs';
 
 @Component({

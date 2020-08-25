@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from '../projects.service';
+import { ProjectsService } from '../services/projects.service';
 import { Project } from '../project';
 import { Observable } from 'rxjs';
 
@@ -27,7 +27,6 @@ export class ProjectListComponent implements OnInit {
   }
 
   onTagSelected(tag: string) {
-    console.log(tag);
     this.selectedTag = tag;
     this.getProjects();
   }

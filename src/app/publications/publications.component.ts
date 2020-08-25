@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from '../projects.service';
+import { PublicationsService } from '../services/publications.service';
 import { Publication } from '../publication';
 import { Observable } from 'rxjs';
 
@@ -12,7 +12,7 @@ export class PublicationsComponent implements OnInit {
 
   selectedTag: string;
   publications$: Observable<Publication[]>;
-  constructor(private projectsService: ProjectsService) { }
+  constructor(private publicationsService: PublicationsService) { }
 
   ngOnInit(): void
   {
@@ -21,12 +21,12 @@ export class PublicationsComponent implements OnInit {
 
   getPublications()
   {
-    this.publications$ = this.projectsService.getPublications();
+    this.publications$ = this.publicationsService.getPublications(this.selectedTag);
   }
 
   getListOfTags(publications: Publication[])
   {
-    return this.projectsService.createListOfTags(publications);
+    return this.publicationsService.createListOfTags(publications);
   }
 
   onTagSelected(tag: string)
@@ -34,7 +34,4 @@ export class PublicationsComponent implements OnInit {
     this.selectedTag = tag;
     this.getPublications();
   }
-
-
-
 }

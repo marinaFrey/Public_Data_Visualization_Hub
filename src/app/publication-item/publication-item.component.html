@@ -20,7 +20,7 @@
         <div class="project-content">
             <h1>
                 <b>{{publication.title}}</b>
-                <a mat-button class="link-button" color="primary" href="{{publication.paperUrl}}"
+                <a *ngIf="publication.paperUrl" mat-button class="link-button" color="primary" href="{{publication.paperUrl}}"
                     target="_blank">Paper</a>
             </h1>
             <div *ngIf="publication.award" class="award">
