@@ -1,12 +1,12 @@
-<mat-card fxFlex="100" fxLayout="row">
+<mat-card  >
     <!--<div *ngIf="member.photo" class="member-photo" >
         <img mat-card-image src="assets/photos/members/{{member.photo}}" alt="Photo of member">
     </div>-->
-    <div class="member-info" fxFlex fxLayout="column">
+    <div class="member-info" fxFlex >
         <mat-card-header fxFlex >
             <mat-card-title>{{member.name}}</mat-card-title>
-            <mat-card-subtitle *ngIf="member.studentType">
-                {{member.studentType}} 
+            <mat-card-subtitle *ngIf="showDegree && member.degree">
+                {{member.degree}} 
                 <a *ngIf="member.advisor">({{member.advisor}})</a>
             </mat-card-subtitle>
         </mat-card-header>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Member } from '../project';
+import { Member } from '../member';
 
 @Component({
   selector: 'app-member-item',
@@ -9,6 +9,7 @@ import { Member } from '../project';
 export class MemberItemComponent implements OnInit {
 
   @Input() member: Member;
+  @Input() showDegree = false;
   constructor() { }
 
   ngOnInit(): void {

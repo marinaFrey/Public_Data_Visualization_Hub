@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Member } from '../project';
+import { Member } from '../member';
 import { MEMBERS } from '../membersData';
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,45 @@ export class MembersService {
   getMembersByCategory(category: string): Observable<any>
   {
     return of(this.listMembersByCategory(MEMBERS, category));
+  }
+
+  listCurrentStudents(members: Member[])
+  {
+    let list = [];
+    for (let i = 0; i < members.length; i++)
+    {
+      if (members[i]['degree'] != 'Professor' && !members[i]['graduationDate'])
+      {
+        list.push(members[i]);
+      }
+    }
+    return list;
+  }
+
+  listFormerStudents(members: Member[])
+  {
+    let list = [];
+    for (let i = 0; i < members.length; i++)
+    {
+      if (members[i]['degree'] != 'Professor' && members[i]['graduationDate'])
+      {
+        list.push(members[i]);
+      }
+    }
+    return list;
+  }
+
+  listMembersFromCategory(members: Member[], category: string, selected: string)
+  {
+    let list = [];
+    for (let i = 0; i < members.length; i++)
+    {
+      if(members[i][category] === selected)
+      {
+        list.push(members[i]);
+      }
+    }
+    return list;
   }
 
   listMembersByCategory(members: Member[], category: string)

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Member } from '../project';
+import { Member } from '../member';
 import { Observable } from 'rxjs';
 import { MembersService } from '../services/members.service';
 
@@ -20,6 +20,22 @@ export class MembersComponent implements OnInit {
 
   getMembers()
   {
-    this.members$ = this.membersService.getMembersByCategory('studentType');
+    this.members$ = this.membersService.getMembers();
+    //this.members$ = this.membersService.getMembersByCategory('studentType');
+  }
+
+  listMembersFromCategory(members: Member[], category: string, selected: string)
+  {
+    return this.membersService.listMembersFromCategory(members, category, selected);
+  }
+
+  listCurrentStudents(members: Member[])
+  {
+    return this.membersService.listCurrentStudents(members);
+  }
+
+  listFormerStudents(members: Member[])
+  {
+    return this.membersService.listFormerStudents(members);
   }
 }

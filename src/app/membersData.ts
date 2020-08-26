@@ -1,70 +1,60 @@
-import { Member } from './project';
+import { Member } from './member';
 /* tslint:disable */
 export const MEMBERS: Member[] =
     [
         {
             name: "Carla Freitas",
-            studentType: "Professor",
+            degree: "Professor",
             url: "http://fortesrey.net/inf/cv",
-            projects: [1, 2],
-            alreadyGraduated: false
+            projects: [1, 2]
         }, 
         {
             name: "Luciana Nedel",
-            studentType: "Professor",
-            alreadyGraduated: false
+            degree: "Professor"
         }, 
         {
             name: "Um Nome Muito Comprido Problematico",
-            studentType: "Professor",
-            alreadyGraduated: false
+            degree: "Professor"
         },
         {
             name: "Um Nome Muito Comprido Problematico",
-            studentType: "Ph.D",
-            advisor: "Carla Freitas",
-            alreadyGraduated: false
+            degree: "Ph.D",
+            advisor: "Carla Freitas"
         },
         {
             name: "Gustavo Feller",
-            studentType: "Ph.D",
-            advisor: "Carla Freitas",
-            alreadyGraduated: false
+            degree: "Ph.D",
+            advisor: "Carla Freitas"
         },
         {
             name: "Um Nome Muito Comprido Problematico",
-            studentType: "M.Sc.",
-            advisor: "Carla Freitas",
-            alreadyGraduated: false
+            degree: "M.Sc.",
+            advisor: "Carla Freitas"
         },
         {
             name: "Marina Fortes Rey",
-            studentType: "M.Sc.",
+            degree: "M.Sc.",
             photo: "marinafrey.jpg",
             url: "http://fortesrey.net/inf/cv",
             advisor: "Carla Freitas",
-            projects: [1,2],
-            alreadyGraduated: true
+            projects: [1,2]
         },
         {
             name: "Marina Fortes Rey",
-            studentType: "Undergraduate",
-            alreadyGraduated: false
+            degree: "Undergraduate"
         },
         {
             name: "Um Nome Muito Comprido Problematico",
-            studentType: "Undergraduate",
-            advisor: "Carla Freitas",
-            alreadyGraduated: false
+            degree: "Undergraduate",
+            advisor: "Carla Freitas"
         },
         {
             name: "Marina Fortes Rey",
-            studentType: "Undergraduate",
-            alreadyGraduated: false
+            degree: "Undergraduate"
         },
         {
             name: "Marina Fortes Rey",
-            studentType: "Former Member",
-            alreadyGraduated: true
+            degree: "Former Member",
+            graduationDate: "29/04/2020"
         }
     ];
