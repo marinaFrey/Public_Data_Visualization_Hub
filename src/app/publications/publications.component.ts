@@ -21,7 +21,12 @@ export class PublicationsComponent implements OnInit {
 
   getPublications()
   {
-    this.publications$ = this.publicationsService.getPublications(this.selectedTag);
+    this.publications$ = this.publicationsService.getPublications();
+  }
+
+  filterPublicationsBySelectedTag(publications: Publication[])
+  {
+    return this.publicationsService.filterPublicationsByTag(publications, this.selectedTag);
   }
 
   getListOfTags(publications: Publication[])

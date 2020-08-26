@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject, Observer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { Project, Member } from '../project';
+import { Project } from '../project';
 import { PROJECTS } from '../projectData';
-import { MEMBERS } from '../membersData';
-import { PUBLICATIONS } from '../publicationsData';
-import { Publication } from '../publication';
 
 @Injectable({
   providedIn: 'root'

@@ -41,6 +41,11 @@ export class PublicationsService {
 
   filterPublicationsByTag(publications: Publication[], tag: string)
   {
+    console.log(tag)
+    if(tag === 'All' || !tag)
+    {
+      return publications;
+    }
     const list = [];
     publications.forEach(publication =>
     {

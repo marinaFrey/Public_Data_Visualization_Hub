@@ -1,5 +1,5 @@
-<div *ngIf="projects$ | async as projects; else loading" fxLayout="row wrap" fxLayoutAlign="center center" fxFlex="100">
 
+<div *ngIf="projects$ | async as projects; else loading" fxLayout="row wrap" fxLayoutAlign="center center" fxFlex="100">
     <app-project-filters class="project-filters-container" [tags]="getListOfTags(projects)" (selectedTag)="onTagSelected($event)" ></app-project-filters>
 
     <div fxLayout="row wrap" fxLayout.lt-sm="column" fxFlex="100" fxLayoutWrap class="card-deck-container">
